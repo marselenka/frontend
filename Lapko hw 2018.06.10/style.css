@@ -5,7 +5,7 @@
 }
 
 header{
-    background: #396;
+    background: #607D8B;
     padding: 0 20px;
     margin: auto;
     width: 960px;
@@ -82,7 +82,7 @@ iframe{
 footer{
     margin:auto;
     width:960px;
-    background: #396;
+    background: #607D8B;
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
