@@ -42,15 +42,15 @@ ul a:hover{
 }
 
 .one{
-    background: #47A;
+    background: #FFA726;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 .two{
-    background: #47A;
+    background: #FFA726;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 .three{
-    background: #47A;
+    background: #FFA726;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 
@@ -73,7 +73,7 @@ video{
     margin-bottom: 30px;
 }
 iframe{
-        flex-basis: 100px;
+    flex-basis: 100px;
     flex-grow: 1;
     align-content: space-between;
     margin:40px 5px;
