@@ -38,6 +38,7 @@ ul a{
 }
 ul a:hover{
     background: #47A;
+    font-weight: bolder;
 }
 
 .one{
