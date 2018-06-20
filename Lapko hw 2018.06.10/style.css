@@ -5,7 +5,7 @@
 }
 
 header{
-    background: #396;
+    background: #607D8B;
     padding: 0 20px;
     margin: auto;
     width: 960px;
@@ -19,7 +19,7 @@ ul{
     flex-wrap: wrap;
     max-width: 960px;
     justify-content: space-around;
-    background: #369;
+    background: #F57C00;
     list-style-type: none;
     margin: 0 auto;
 }
@@ -37,22 +37,27 @@ ul a{
     text-decoration: none;
 }
 ul a:hover{
-    background: #47A;
+
+    background: #FFA726;
     font-weight: bolder;
+
 }
 
 .one{
-    background: #47A;
+    background: #FFA726;
+    font-weight: bolder;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
     font-weight: bolder;
 }
 .two{
-    background: #47A;
+    background: #FFA726;
+    font-weight: bolder;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
     font-weight: bolder;
 }
 .three{
-    background: #47A;
+    background: #FFA726;
+    font-weight: bolder;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
     font-weight: bolder;
 }
@@ -81,7 +86,7 @@ video{
     margin-bottom: 30px;
 }
 iframe{
-        flex-basis: 100px;
+    flex-basis: 100px;
     flex-grow: 1;
     align-content: space-between;
     margin:40px 5px;
@@ -90,7 +95,7 @@ iframe{
 footer{
     margin:auto;
     width:960px;
-    background: #396;
+    background: #607D8B;
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
