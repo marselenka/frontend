@@ -38,7 +38,6 @@ ul a{
 }
 ul a:hover{
     background: #47A;
-    /*box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;*/
 }
 
 .one{
@@ -50,6 +49,10 @@ ul a:hover{
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 .three{
+    background: #47A;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
+}
+.four{
     background: #47A;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
