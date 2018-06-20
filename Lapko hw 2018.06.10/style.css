@@ -38,19 +38,23 @@ ul a{
 }
 ul a:hover{
     background: #FFA726;
+    font-weight: bolder;
     /*box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;*/
 }
 
 .one{
     background: #FFA726;
+    font-weight: bolder;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 .two{
     background: #FFA726;
+    font-weight: bolder;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 .three{
     background: #FFA726;
+    font-weight: bolder;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
 }
 
