@@ -44,18 +44,22 @@ ul a:hover{
 .one{
     background: #47A;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
+    font-weight: bolder;
 }
 .two{
     background: #47A;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
+    font-weight: bolder;
 }
 .three{
     background: #47A;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
+    font-weight: bolder;
 }
 .four{
     background: #47A;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
+    font-weight: bolder;
 }
 
 main{
