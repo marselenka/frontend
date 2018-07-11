@@ -29,14 +29,14 @@
 function rand(a, b) {
     return Math.round(Math.random() * (b - a)) + a;
 }
-
-while (true) {
+var result=true;
+while (result) {
     let randNum = rand(1, 100);
     let num = parseInt(prompt("Угадайте с 5 попыток число от 1 до 100: "));
     for (let i = 1; i <= 5; i++) {
         let effort = 5 - i;
         if (num !== randNum && i === 5) {
-            alert("Все попытки исчерпаны - ты проиграл! сыграем еще?");
+            result=confirm("Все попытки исчерпаны - ты проиграл! сыграем еще?");
             break;
         }
         if (num > randNum) {
@@ -48,7 +48,7 @@ while (true) {
             continue;
         }
         if (num === randNum) {
-            alert("Вы выграли, сыграем еще?");
+            result=confirm("Вы выграли, сыграем еще?");
             break;
         }
     }
