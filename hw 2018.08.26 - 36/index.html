@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .book {
+        background-color: #B2DFDB;
+        border: 1px solid #B2DFDB;
+        margin: 10px;
+        padding: 5px;
+        color: #212121;
+    }
+    .new{
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0;
+    }
+</style>
+
+
+<div>
+    <h2>Добавить книгу</h2>
+    <dl>
+        <dt><label for="title">Название</label></dt>
+        <dd><input type="text" id="title"><br></dd>
+
+        <dt><label for="author">Автор</label></dt>
+        <dd><input type="text" id="author"><br></dd>
+
+        <dt><label for="edition">Год издания</label></dt>
+        <dd><input type="number" id="edition"><br></dd>
+
+    </dl>
+    <button id="addBook">Ok</button>
+</div>
+<div>
+    <h3>Вывести информацию</h3>
+    <label for="numberFilter">Введите номер: </label>
+    <input type="number" id="numberFilter">
+    <button id="numberFilterBtn">Ok</button>
+</div>
+<div>
+    <h3>Удалить книгу по номеру</h3>
+    <label for="numberFilterDel">Введите номер: </label>
+    <input type="number" id="numberFilterDel">
+    <button id="numberFilterBtnDel">Ok</button>
+</div>
+<div>
+    <h3>Удалить книгу по названию</h3>
+    <label for="titleFilterDel">Введите название: </label>
+    <input type="text" id="titleFilterDel">
+    <button id="titleFilterBtnDel">Ok</button>
+</div>
+<div>
+    <h3>Поиск по автору</h3>
+    <label for="authorFilter">Автор: </label>
+    <input type="text" id="authorFilter">
+    <button id="authorFilterBtn">Ok</button>
+</div>
+<h4>Сбросить результат</h4>
+<button id="reset">Reset</button>
+<div id="journal">
+</div>
+
+
+<script>
+
+    let journalElem = document.getElementById("journal");
+    let addBookTitle = document.getElementById("title");
+    let addBookAuthor = document.getElementById("author");
+    let addBookEdition = document.getElementById("edition");
+    let addBookBtn = document.getElementById("addBook");
+
+    let authorFilter = document.getElementById("authorFilter");
+    let numberFilter = document.getElementById("numberFilter");
+    let numberFilterDel = document.getElementById("numberFilterDel");
+    let titleFilterDel = document.getElementById("titleFilterDel");
+
+    let resetBtn = document.getElementById("reset");
+
+    function Book(title, author, edition) {
+
+        this.title = title;
+        this.author = author;
+        this.edition = edition;
+
+        this.asIndexedHTML = function (number) {
+            return `
+                <div class="book">
+                <div class="new"> `
+                + number + ":" +
+                     `<div class="title">${this.title}</div></div>
+                    <div class="author">${this.author}</div>
+                    <div class="edition">${this.edition} г</div>
+                </div>
+            `;
+        }
+
+        this.asIndexedHTML2 = function (number) {
+            return `
+                <div class="book new">
+               <div class="numb">` + number + ":" +`</div>
+                <div class="title">${this.title}</div>
+                </div>
+            `;
+        }
+    }
+
+
+    function BookJournal() {
+        this.books = [];
+        this.add = function (book) {
+            book.index = this.books.length + 1;
+            this.books.push(book);
+        };
+        this.getAll = function () {
+            return this.books
+        };
+        this.getByAuthor = function (author) {
+            return this.books.filter(book => book.author === author);
+        };
+        this.getByNumber = function (number) {
+            return this.books.filter(book => book.index == number);
+        };
+        this.getByTitle = function (title) {
+            return this.books.filter(book => book.title === title);
+        };
+    }
+
+    function showBooks(books) {
+        let booksHTML = "";
+        books.forEach(book => booksHTML += book.asIndexedHTML(book.index));
+        journalElem.innerHTML = booksHTML;
+    }
+    function showBooks2(books) {
+        let booksHTML = `<div class="book new"> Книги автора \"`+books[0].author+`\"</div>`;
+        books.forEach(book => booksHTML += book.asIndexedHTML2(book.index));
+        journalElem.innerHTML =  booksHTML;
+    }
+
+    function delBooks(books, title) {
+        journal.books = books.filter(p => p.title !== title)
+    }
+
+    function delBooksByNum(books, number) {
+        journal.books = books.filter(p => p.index != number)
+    }
+
+    let journal = new BookJournal();
+    journal.add(new Book("Немезида", "Азимов", 1989));
+    journal.add(new Book("Никогде", "Гейман", 2009));
+    journal.add(new Book("Дверь в лето", "Хайнлайн", 1956));
+    journal.add(new Book("Звезды как пыль", "Азимов", 1951));
+    journal.add(new Book("Конец вечности", "Азимов", 1955));
+    journal.add(new Book("Мечтают ли андроиды об электроовцах?", "Дик", 1968));
+    journal.add(new Book("Океан в конце дороги", "Гейман", 2013));
+    journal.add(new Book("Роботы зари", "Азимов", 1983));
+
+    showBooks(journal.getAll());
+
+    resetBtn.onclick = function () {
+        showBooks(journal.getAll());
+    };
+
+    addBookBtn.onclick = function () {
+        journal.add(new Book(
+            addBookTitle.value,
+            addBookAuthor.value,
+            parseInt(addBookEdition.value)
+        ));
+        showBooks(journal.getAll());
+    };
+
+    authorFilterBtn.onclick = function () {
+      showBooks2(journal.getByAuthor(authorFilter.value));
+    };
+    numberFilterBtn.onclick = function () {
+        console.log(journal.getByNumber(numberFilter.value));
+        showBooks(journal.getByNumber(numberFilter.value));
+    };
+    numberFilterBtnDel.onclick = function () {
+        delBooksByNum(journal.getAll(), numberFilterDel.value);
+        showBooks(journal.getAll());
+    };
+    titleFilterBtnDel.onclick = function () {
+        delBooks(journal.getAll(), titleFilterDel.value);
+        showBooks(journal.getAll());
+    };
+
+</script>
+</body>
+</html>
