@@ -1,30 +1,32 @@
-// 1 reduce сумма всех элементов М-----------------------------------------
+var array=[1, -7, 2, 5, 7, 9, 0, 6];
 
-function reduce(arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) sum += arr[i];
-    return sum;
+// 1 reduce -----------------------------------------
+function reduce(arr,f) {
+    let result = arr[0];
+    for (let i = 1; i < arr.length; i++) result=f(result,arr[i]);
+    return result;
 }
-
-console.log(reduce([1, -7, 2, 5, 7, 9, 0, 6]));
+console.log (reduce(array,function (arg1,arg2) {
+    return arg1+arg2;
+}));
 
 
 // 2 every -----------------------------------------
-
-function every(arr) {
+function every(arr,predicate) {
     for (let i = 0; i < arr.length; i++)
-        if (!(arr[i]>= -10)) return false;
+        if (!predicate(arr[i])) return false;
     return true;
 }
-console.log(every([1, -7, 2, 5, 7, 9, 0, 6]));
+console.log (every(array,function (elem) {
+    return elem>= -25;
+}));
 
 // 3 some -----------------------------------------
-
-function some(arr) {
+function some(arr,predicate) {
     for (let i = 0; i < arr.length; i++)
-        if (arr[i] ===-7) {
-            return true;
-        }
+        if (predicate(arr[i])) return true;
     return false;
 }
-console.log(some([1, -7, 2, 5, 7, 9, 0, 6]));
+console.log (some(array,function (elem) {
+    return elem===5;
+}));
